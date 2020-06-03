@@ -8,7 +8,7 @@ mongoose.connect('mongodb+srv://test:test@cluster0-nc9ml.mongodb.net/test?retryW
                 {useNewUrlParser: true,useUnifiedTopology: true });
 
 router.get('/',async (req,res,next)=>{
-  res.render('home')
+  res.redirect('/home')
 })
 
 router.get('/home',(req,res)=>{
