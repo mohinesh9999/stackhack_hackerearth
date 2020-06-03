@@ -77,13 +77,4 @@ router.get('/completeregisteration/:id',async (req,res,next)=>{
     res.redirect('/home')
   }
 })
-
-router.get('/test',(req,res,next)=>{
-  console.log(req.session,req.session.email);
-  res.send('hi')
-})
-router.get('/test1',(req,res,next)=>{req.session.email='b'
-  console.log(req.session,req.session.email);
-  res.send('hi')
-})
 module.exports = router;
