@@ -6,6 +6,11 @@ var MyModel=require('./Userschema')
 var ai=require('./autiinc')
 mongoose.connect('mongodb+srv://test:test@cluster0-nc9ml.mongodb.net/test?retryWrites=true&w=majority',
                 {useNewUrlParser: true,useUnifiedTopology: true });
+
+router.get('/',async (req,res,next)=>{
+  res.render('home')
+})
+
 router.get('/home',(req,res)=>{
   res.render('home')
 })
