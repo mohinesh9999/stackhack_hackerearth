@@ -8,7 +8,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter=require('./routes/admin')
 var app = express();
-
+app.use(session({
+  secret: 'mkshere',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false, maxAge  : new Date(Date.now() + (60 * 1000 * 30)) }
+}))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,12 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: 'mkshere',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false, maxAge  : new Date(Date.now() + (60 * 1000 * 30)) }
-}))
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);

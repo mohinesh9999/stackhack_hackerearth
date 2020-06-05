@@ -68,6 +68,7 @@ router.get('/deleteandreedit/:id',async (req,res,next)=>{
 
 router.get('/completeregisteration/:id',async (req,res,next)=>{
   try{
+    
     if(req.session.email==req.params.id){var x= await MyModel.findById(req.params.id)
     res.render('user',{x})}
     else{
@@ -77,4 +78,6 @@ router.get('/completeregisteration/:id',async (req,res,next)=>{
     res.redirect('/home')
   }
 })
+
+
 module.exports = router;

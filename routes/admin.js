@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 })
 router.post('/main',async (req,res)=>{
     try{
-        if((req.body.email=='admin@gmail.com' && req.body.password=='admin') || req.session.admin=='admin'){
+        if((req.body.email=='admin@gmail.com' && req.body.password=='admin')){
         var c,s,o,g;
         c=0; s=0; o=0; g=0; 
         var x=await MyModel.find({})
@@ -43,5 +43,10 @@ router.get('/q/:id',async (req,res,next)=>{
     }catch(e){
         res.send({})
     }
+})
+
+router.get('/logout',(req,res,next)=>{
+    delete req.session.admin
+    res.redirect('/')
 })
 module.exports=router
