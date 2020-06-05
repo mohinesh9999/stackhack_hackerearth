@@ -58,7 +58,7 @@ res.redirect('/a?valid=' + msg)
 
 router.get('/deleteandreedit/:id',async (req,res,next)=>{
   try{
-    if(req.session.email==req.params.id){await MyModel.findByIdAndDelete(req.params.id)}
+    await MyModel.findByIdAndDelete(req.params.id)
     res.redirect('/a')
   }catch(e){
     res.send(e.message)
@@ -69,11 +69,9 @@ router.get('/deleteandreedit/:id',async (req,res,next)=>{
 router.get('/completeregisteration/:id',async (req,res,next)=>{
   try{
     
-    if(req.session.email==req.params.id){var x= await MyModel.findById(req.params.id)
-    res.render('user',{x})}
-    else{
-      res.redirect('/a')
-    }
+    var x= await MyModel.findById(req.params.id)
+    res.render('user',{x})
+    
   }catch(e){
     res.redirect('/home')
   }
