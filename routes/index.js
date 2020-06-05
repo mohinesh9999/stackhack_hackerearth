@@ -15,7 +15,7 @@ router.get('/home',(req,res)=>{
   res.render('home')
 })
 router.get('/a', async function(req, res, next) {
-  var msg=''
+  var msg=req.query.valid
   res.render('index', { title: 'Express' ,msg});
 });
 
@@ -49,7 +49,7 @@ router.post('/preview',upload.any('file'),async (req,res,next)=>{
   }
 }catch(e){ var msg='email already used'
 delete req.session.email
-res.redirect('/a')
+res.redirect('/a?valid=' + msg)
 }
   
 })

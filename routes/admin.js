@@ -3,11 +3,12 @@ var router = express.Router();
 var mongoose=require('mongoose')
 var MyModel=require('./Userschema')
 router.get('/',(req,res)=>{
+    var msg='see here'
     if(req.session.admin!='admin'){
         req.session.admin='admin'
-        res.render('admin-login')
+        res.render('admin-login',{msg})
 }
-    else{res.render('admin-login')}
+    else{res.render('admin-login',{msg})}
 })
 router.post('/main',async (req,res)=>{
     try{
