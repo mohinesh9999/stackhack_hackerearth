@@ -7,3 +7,9 @@ to run this project locally follow the given steps:
 4. install the modules from npm like validator,nodemon,multer,morgan,mongoose,http-errors,express-session,express,ejs,debug,cookie-parser
 for example to install nodemon:
 npm i nodemon
+
+
+
+
+A bode.js app implementing registration of event with its searching.
+by implementing AJAX.
