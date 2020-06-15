@@ -11,5 +11,5 @@ npm i nodemon
 
 
 
-A bode.js app implementing registration of event with its searching.
+A node.js app implementing registration of event with its searching.
 by implementing AJAX.
